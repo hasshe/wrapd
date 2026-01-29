@@ -1,0 +1,79 @@
+# Xcode
+*.xcworkspace/
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+DerivedData/
+
+# Build artifacts
+build/
+Build/
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# Swift Package Manager
+.swiftpm/
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/
+*.podspec.json
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# SwiftGen / Sourcery / Other generated
+**/Generated/
+**/generated/
+
+# User-specific settings
+*.xcuserstate
+*.orig
+*.rej
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# macOS files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Vim / VSCode / Editors
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# SwiftLint cache
+.swiftlint.cache
+
+# Xcode 15+ new build system intermediates
+SourcePackages/checkouts/*/.build/
+
+# Simulator device data (never commit)
+Library/Developer/CoreSimulator/
