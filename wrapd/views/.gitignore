@@ -4,6 +4,8 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
 
 # Build artifacts
 build/
