@@ -31,14 +31,26 @@ struct ContentView: View {
                         .onDelete { indexSet in
                             items.remove(atOffsets: indexSet)
                         }
+                        if !hasEmptyRow {
+                            Button {
+                                let newItem = RowItem(title: "", isEditing: true)
+                                items.append(newItem)
+                                focusedItemID = newItem.id
+                            } label: {
+                                HStack {
+                                    Image(systemName: "plus.circle.fill")
+                                    Text("Add Row")
+                                        .bold()
+                                }
+                                .foregroundStyle(.green)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                        }
                     }
                     .scrollContentBackground(.hidden)
                     .background(Color.clear)
                 }
                 .padding()
-            }
-            .toolbar {
-                addButton
             }
         }
     }
@@ -55,7 +67,7 @@ private extension ContentView {
         Text("Wrapd")
             .bold()
             .font(.largeTitle.italic())
-            .foregroundStyle(.white)
+            .foregroundStyle(.green)
     }
 
     var addButton: some ToolbarContent {
