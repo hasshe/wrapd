@@ -42,6 +42,10 @@ struct ContentView: View {
             }
         }
     }
+    
+    private var hasEmptyRow: Bool {
+        items.contains { $0.title.isBlank }
+    }
 }
 
 // MARK: - Subviews
@@ -57,12 +61,14 @@ private extension ContentView {
     var addButton: some ToolbarContent {
         ToolbarItem(placement: .primaryAction) {
             Button {
-                let newItem = RowItem(title: "", isChecked: false, isEditing: true)
+                let newItem = RowItem(title: "", isEditing: true)
                 items.append(newItem)
                 focusedItemID = newItem.id
             } label: {
                 Label("Add Row", systemImage: "plus")
             }
+            .disabled(hasEmptyRow)
+            .opacity(hasEmptyRow ? 0.5 : 1)
         }
     }
 }

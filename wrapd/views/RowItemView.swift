@@ -25,9 +25,22 @@ struct RowItemView: View {
             deleteButton
         }
         .onChange(of: focusedItemID) { _, newValue in
-            item.isEditing = (newValue == item.id)
+            if newValue != item.id {
+                finalizeEditing()
+            }
         }
     }
+    
+    private func finalizeEditing() {
+        if item.title.isBlank {
+            if let index = items.firstIndex(where: { $0.id == item.id }) {
+                items.remove(at: index)
+            }
+        } else {
+            item.isEditing = false
+        }
+    }
+
 }
 
 // MARK: - Subviews
@@ -47,12 +60,11 @@ private extension RowItemView {
     var editingField: some View {
         TextField("New item", text: $item.title)
             .textFieldStyle(.roundedBorder)
-            .foregroundStyle(.primary)
-            .frame(maxWidth: .infinity, alignment: .leading)
             .focused($focusedItemID, equals: item.id)
             .onSubmit {
-                item.isEditing = false
+                finalizeEditing()
             }
+
     }
 
     var titleText: some View {
