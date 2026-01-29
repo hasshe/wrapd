@@ -63,13 +63,26 @@ struct ContentView: View {
 // MARK: - Subviews
 private extension ContentView {
 
+    /* Custom image, comment out for now
     var header: some View {
-        Text("Wrapd")
-            .bold()
-            .font(.largeTitle.italic())
-            .foregroundStyle(.green)
+        Image("AppLogo")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 80)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
-
+     */
+    var header: some View {
+        VStack(spacing: 8) { // Adjust spacing between icon and text
+            Image(systemName: "person.crop.circle.fill")
+                .font(.system(size: 90))
+                .foregroundStyle(.green)
+            
+            Text("Forza Milano")
+                .font(.headline)
+                .foregroundStyle(.white) // Or .secondary for a more subtle look
+        }
+    }
     var addButton: some ToolbarContent {
         ToolbarItem(placement: .primaryAction) {
             Button {
